@@ -28,230 +28,12 @@
         --current-color: #00ff00;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-5px);
-        }
-      }
-
       @keyframes fade-in {
         from {
           opacity: 0;
-          transform: scale(0.8);
         }
         to {
           opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes slide-in-left {
-        from {
-          opacity: 0;
-          transform: translateX(-100px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slide-in-right {
-        from {
-          opacity: 0;
-          transform: translateX(100px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slide-in-top {
-        from {
-          opacity: 0;
-          transform: translateY(-100px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slide-in-bottom {
-        from {
-          opacity: 0;
-          transform: translateY(100px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes zoom-in {
-        from {
-          opacity: 0;
-          transform: scale(0.5);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes typewriter {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      /* Нові анімації для гіфок */
-      @keyframes slide-from-left {
-        0% {
-          transform: translateX(-300px) rotate(0deg);
-          opacity: 0;
-        }
-        20% {
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(calc(100vw + 300px)) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes slide-from-right {
-        0% {
-          transform: translateX(calc(100vw + 300px)) rotate(0deg);
-          opacity: 0;
-        }
-        20% {
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(-300px) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes slide-from-left-return {
-        0% {
-          transform: translateX(-300px) rotate(0deg);
-          opacity: 0;
-        }
-        20% {
-          opacity: 1;
-        }
-        50% {
-          transform: translateX(calc(50vw - 100px)) rotate(180deg);
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(-300px) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes slide-from-right-return {
-        0% {
-          transform: translateX(calc(100vw + 300px)) rotate(0deg);
-          opacity: 0;
-        }
-        20% {
-          opacity: 1;
-        }
-        50% {
-          transform: translateX(calc(50vw + 100px)) rotate(180deg);
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(calc(100vw + 300px)) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes float-down {
-        0% {
-          transform: translateY(-200px) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(calc(100vh + 200px)) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes appear-disappear {
-        0% {
-          opacity: 0;
-          transform: scale(0.5) rotate(0deg);
-        }
-        30% {
-          opacity: 1;
-          transform: scale(1) rotate(180deg);
-        }
-        70% {
-          opacity: 1;
-          transform: scale(1) rotate(360deg);
-        }
-        100% {
-          opacity: 0;
-          transform: scale(0.5) rotate(540deg);
-        }
-      }
-
-      @keyframes rotate-in {
-        from {
-          opacity: 0;
-          transform: scale(0) rotate(-180deg);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
-        }
-      }
-
-      /* Анімації для екрану завантаження */
-      @keyframes loading-dots {
-        0%,
-        20% {
-          content: "Loading>>>";
-        }
-        40% {
-          content: "Loading>>";
-        }
-        60% {
-          content: "Loading>";
-        }
-        80%,
-        100% {
-          content: "Loading";
         }
       }
 
@@ -272,6 +54,25 @@
         to {
           opacity: 1;
           transform: scale(1);
+        }
+      }
+
+      @keyframes gif-fade {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        20% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8);
         }
       }
 
@@ -297,7 +98,6 @@
         transition: --current-color 3s ease;
       }
 
-      /* Екран завантаження */
       .loading-screen {
         position: fixed;
         top: 0;
@@ -319,12 +119,6 @@
         color: var(--acid-green);
         text-align: center;
         margin-bottom: 2rem;
-        animation: loading-dots 2s infinite;
-      }
-
-      .loading-text::after {
-        content: "Loading...";
-        animation: loading-dots 2s infinite;
       }
 
       .ready-screen {
@@ -433,9 +227,13 @@
         position: absolute;
         max-width: 200px;
         max-height: 200px;
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7)) brightness(0.7)
+          contrast(1.1);
         mix-blend-mode: screen;
-        opacity: 0.7;
+        opacity: 0.6;
+        border-radius: 10px;
+        object-fit: cover;
+        display: none;
       }
 
       .lyrics-container {
@@ -472,8 +270,6 @@
         display: inline-block;
         margin: 0 0.05rem;
         position: relative;
-        animation: pulse 2s ease-in-out infinite;
-        animation-delay: calc(var(--char-index) * 0.05s);
       }
 
       .controls {
@@ -488,13 +284,13 @@
         align-items: center;
         gap: 1.5rem;
         z-index: 100;
-        background: rgba(0, 0, 0, 0.8); /* Фіксована прозорість фону */
+        background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(20px) saturate(180%);
         border-radius: 1rem;
         padding: 1.5rem;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        opacity: 1; /* Фіксована непрозорість всього контейнера */
+        opacity: 1;
         display: none;
       }
 
@@ -650,35 +446,6 @@
         transform: translate(-50%, -50%);
       }
 
-      .volume-waves {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      .volume-wave {
-        position: absolute;
-        width: 4px;
-        height: 8px;
-        background: var(--current-color);
-        border-radius: 2px;
-        bottom: 4px;
-        animation: pulse 1.5s infinite;
-      }
-
-      .volume-wave:nth-child(1) {
-        left: 4px;
-        animation-delay: 0s;
-      }
-      .volume-wave:nth-child(2) {
-        left: 10px;
-        animation-delay: 0.2s;
-      }
-      .volume-wave:nth-child(3) {
-        left: 16px;
-        animation-delay: 0.4s;
-      }
-
       #volume-slider {
         width: 100%;
         height: 4px;
@@ -697,42 +464,6 @@
         border-radius: 50%;
         cursor: pointer;
         box-shadow: 0 0 8px var(--current-color);
-      }
-
-      .gif {
-        position: absolute;
-        max-width: 300px; /* Збільшити максимальний розмір */
-        max-height: 300px;
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7)) brightness(0.7)
-          /* Зробити темнішими - 70% яскравості */ contrast(1.1); /* Трохи збільшити контраст для компенсації */
-        mix-blend-mode: screen;
-        opacity: 0.6; /* Зменшити прозорість */
-        transition: filter 0.3s ease; /* Плавна зміна ефектів */
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.8) 0%,
-          rgba(0, 0, 0, 0.6) 50%,
-          rgba(0, 0, 0, 0.8) 100%
-        );
-      }
-
-      /* Додатковий ефект при наведенні (опціонально) */
-      .gif:hover {
-        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8)) brightness(0.8)
-          contrast(1.2);
-        opacity: 0.8;
-      }
-
-      .gif::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: inherit;
-        z-index: 1;
       }
 
       @media (max-width: 768px) {
@@ -769,31 +500,22 @@
         }
       }
 
-      /* Анімації тексту */
       .fade-in {
         animation: fade-in 0.8s ease-out;
       }
-      .slide-in-left {
-        animation: slide-in-left 0.8s ease-out;
+
+      .low-performance-mode .frequency-bar {
+        transition: none;
+        animation: none;
       }
-      .slide-in-right {
-        animation: slide-in-right 0.8s ease-out;
+
+      .low-performance-mode .gif {
+        animation-duration: 3s;
       }
-      .slide-in-top {
-        animation: slide-in-top 0.8s ease-out;
-      }
-      .slide-in-bottom {
-        animation: slide-in-bottom 0.8s ease-out;
-      }
-      .zoom-in {
-        animation: zoom-in 0.8s ease-out;
-      }
-      .rotate-in {
-        animation: rotate-in 0.8s ease-out;
-      }
-      .typewriter {
-        overflow: hidden;
-        animation: typewriter 1.5s steps(40) forwards;
+
+      .low-performance-mode .lyrics-container {
+        animation: none;
+        transition: none;
       }
     </style>
   </head>
@@ -806,7 +528,7 @@
 
     <!-- Екран завантаження -->
     <div class="loading-screen" id="loading-screen">
-      <div class="loading-text"></div>
+      <div class="loading-text">Loading...</div>
     </div>
 
     <!-- Екран готовності -->
@@ -821,7 +543,9 @@
 
     <div class="noise-overlay"></div>
 
-    <div class="gif-container" id="gif-container"></div>
+    <div class="gif-container" id="gif-container">
+      <img class="gif" id="current-gif" alt="Animated GIF" />
+    </div>
 
     <div class="lyrics-container" id="lyrics-container"></div>
 
@@ -859,7 +583,6 @@
     </div>
 
     <script>
-      // Елементи
       const audio = document.getElementById("audio");
       const playPauseButton = document.getElementById("play-pause-button");
       const playIcon = playPauseButton.querySelector(".play-icon");
@@ -871,20 +594,20 @@
       const durationDisplay = document.getElementById("duration");
       const visualizerStage = document.getElementById("visualizer-stage");
       const gifContainer = document.getElementById("gif-container");
+      const currentGif = document.getElementById("current-gif");
       const loadingScreen = document.getElementById("loading-screen");
       const readyScreen = document.getElementById("ready-screen");
       const goButton = document.getElementById("go-button");
-      const controls = document.getElementById("controls"); // Додано цей рядок
+      const controls = document.getElementById("controls");
 
       let isPlaying = false;
       let currentLyricIndex = 0;
-      let beatInterval;
       let colorChangeInterval;
-      let gifInterval;
+      let gifTimeout;
       let currentColorIndex = 0;
-      const colors = ["#00ffea", "#ff009d", "#00ff6a"]; // зелений, червоний, синій
+      let isLowPerformanceMode = false;
+      const colors = ["#00ffea", "#ff009d", "#00ff6a"];
 
-      // Список гіфок (замінити на свої файли)
       const gifs = [
         "gif/0.gif",
         "gif/1.gif",
@@ -895,13 +618,26 @@
         "gif/q.gif",
       ];
 
-      // Ініціалізація
+      function detectLowPerformance() {
+        const isMobile =
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          );
+        const memory = navigator.deviceMemory || 4;
+
+        if (isMobile || memory < 4) {
+          isLowPerformanceMode = true;
+          document.body.classList.add("low-performance-mode");
+          console.log("Low performance mode activated");
+        }
+      }
+
       function init() {
-        // Початковий стан
+        detectLowPerformance();
+
         audio.volume = 0.01;
         volumeSlider.value = 0.01;
 
-        // Показати екран завантаження на 3 секунди
         setTimeout(() => {
           loadingScreen.style.animation = "slide-up 1s ease forwards";
 
@@ -909,7 +645,6 @@
             loadingScreen.style.display = "none";
             readyScreen.style.display = "flex";
 
-            // Анімація появи тексту та кнопки
             setTimeout(() => {
               const readyText = document.querySelector(".ready-text");
               readyText.style.animation = "ready-appear 0.8s ease forwards";
@@ -919,7 +654,7 @@
               }, 500);
             }, 300);
           }, 1000);
-        }, 3000);
+        }, 1900);
       }
 
       goButton.addEventListener("click", startMusic);
@@ -952,7 +687,6 @@
         startEffects();
       }
 
-      // Створення візуалізатора
       function createVisualizer() {
         visualizerStage.innerHTML = "";
         const barCount = Math.floor(window.innerWidth / 10);
@@ -968,14 +702,12 @@
       createVisualizer();
       window.addEventListener("resize", createVisualizer);
 
-      // Форматування часу
       function formatTime(seconds) {
         const mins = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs.toString().padStart(2, "0")}`;
       }
 
-      // Події
       playPauseButton.addEventListener("click", togglePlayPause);
       volumeSlider.addEventListener("input", updateVolume);
       progressBar.addEventListener("click", seekAudio);
@@ -1030,58 +762,54 @@
       }
 
       function startEffects() {
-        // Випадкова зміна кольорів
+        const colorChangeIntervalTime = isLowPerformanceMode ? 12000 : 8000;
         colorChangeInterval = setInterval(() => {
           if (Math.random() > 0.7) {
             changeColorScheme();
           }
-        }, 8000);
+        }, colorChangeIntervalTime);
 
-        // Запуск гіфок
-        gifInterval = setInterval(createRandomGif, 2000);
+        const gifIntervalTime = isLowPerformanceMode ? 4000 : 2000;
+        scheduleNextGif(gifIntervalTime);
       }
 
       function stopEffects() {
         clearInterval(colorChangeInterval);
-        clearInterval(gifInterval);
+        clearTimeout(gifTimeout);
+        currentGif.style.display = "none";
       }
 
       function changeColorScheme() {
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         const newColor = colors[currentColorIndex];
 
-        // Плавна зміна кольору через CSS змінну
         document.documentElement.style.setProperty("--current-color", newColor);
       }
 
       function animateVisualizer() {
         const bars = visualizerStage.querySelectorAll(".frequency-bar");
         bars.forEach((bar, index) => {
-          // Більш плавна анімація з використанням transition
-          const height = Math.random() * 60 + 10;
-          bar.style.height = `${height}%`;
+          if (isLowPerformanceMode) {
+            if (index % 3 === 0) {
+              const height = Math.random() * 60 + 10;
+              bar.style.height = `${height}%`;
+            }
+          } else {
+            const height = Math.random() * 60 + 10;
+            bar.style.height = `${height}%`;
+          }
         });
       }
 
-      // Функція для створення випадкової гіфки
-      function createRandomGif() {
+      function showNextGif() {
         if (!isPlaying) return;
 
         const gifUrl = gifs[Math.floor(Math.random() * gifs.length)];
-        const gif = document.createElement("img");
-        gif.src = gifUrl;
-        gif.className = "gif";
 
-        // Збільшити розмір гіфок
-        const size = Math.random() * 150 + 200; // від 200px до 350px
-        gif.style.width = `${size}px`;
-        gif.style.height = "auto";
+        currentGif.style.animation = "none";
 
-        // Додаткові стилі для кращого вигляду
-        gif.style.borderRadius = "10px"; /* М'які кути */
-        gif.style.objectFit = "cover"; /* Забезпечує правильне масштабування */
+        currentGif.src = gifUrl;
 
-        // Випадкове позиціонування
         const safeTop = window.innerHeight * 0.1;
         const safeBottom = window.innerHeight * 0.7;
         const safeLeft = window.innerWidth * 0.1;
@@ -1090,31 +818,24 @@
         const top = Math.random() * (safeBottom - safeTop) + safeTop;
         const left = Math.random() * (safeRight - safeLeft) + safeLeft;
 
-        gif.style.top = `${top}px`;
-        gif.style.left = `${left}px`;
+        currentGif.style.top = `${top}px`;
+        currentGif.style.left = `${left}px`;
 
-        // Випадкова анімація появи
-        const animations = [
-          "slide-from-left 8s linear forwards",
-          "slide-from-right 8s linear forwards",
-          "slide-from-left-return 10s linear forwards",
-          "slide-from-right-return 10s linear forwards",
-          "float-down 12s linear forwards",
-          "appear-disappear 6s linear forwards",
-        ];
-        const randomAnimation =
-          animations[Math.floor(Math.random() * animations.length)];
-        gif.style.animation = randomAnimation;
+        const size = isLowPerformanceMode
+          ? Math.random() * 100 + 150
+          : Math.random() * 150 + 200;
+        currentGif.style.width = `${size}px`;
 
-        // Додаємо гіфку до контейнера
-        gifContainer.appendChild(gif);
+        currentGif.style.display = "block";
 
-        // Видаляємо гіфку після завершення анімації
-        setTimeout(() => {
-          if (gif.parentNode) {
-            gif.parentNode.removeChild(gif);
-          }
-        }, 15000);
+        currentGif.style.animation = "gif-fade 6s linear forwards";
+
+        const nextGifDelay = isLowPerformanceMode ? 7000 : 6000;
+        scheduleNextGif(nextGifDelay);
+      }
+
+      function scheduleNextGif(delay) {
+        gifTimeout = setTimeout(showNextGif, delay);
       }
 
       function updateLyricIndex(newTime) {
@@ -1133,7 +854,6 @@
       function updateLyrics() {
         const currentTime = audio.currentTime;
 
-        // Знаходимо поточний рядок
         let newIndex = 0;
         for (let i = 0; i < lyrics.length; i++) {
           if (lyrics[i].time <= currentTime) {
@@ -1143,12 +863,10 @@
           }
         }
 
-        // Якщо знайшли новий рядок
         if (newIndex !== currentLyricIndex) {
           currentLyricIndex = newIndex;
           showLyric(lyrics[currentLyricIndex].text);
 
-          // Випадкова зміна кольорів при зміні тексту
           if (Math.random() > 0.5) {
             changeColorScheme();
           }
@@ -1159,38 +877,17 @@
         lyricsContainer.innerHTML = "";
 
         const words = text.split(" ");
-        let charIndex = 0;
 
-        // Випадкова анімація для всього тексту
-        const animations = [
-          "fade-in",
-          "slide-in-left",
-          "slide-in-right",
-          "slide-in-top",
-          "slide-in-bottom",
-          "zoom-in",
-          "rotate-in",
-          "typewriter",
-        ];
-        const randomAnimation =
-          animations[Math.floor(Math.random() * animations.length)];
+        if (!isLowPerformanceMode) {
+          lyricsContainer.className = "lyrics-container fade-in";
+        } else {
+          lyricsContainer.className = "lyrics-container";
+        }
 
-        // Випадкове вирівнювання тексту
         const alignments = ["center", "left", "right"];
         const randomAlignment =
           alignments[Math.floor(Math.random() * alignments.length)];
         lyricsContainer.style.textAlign = randomAlignment;
-
-        // Випадкове позиціонування тексту (уникаємо країв екрана)
-        const maxHorizontalOffset = window.innerWidth * 0.1; // 10% від ширини екрана
-        const maxVerticalOffset = window.innerHeight * 0.05; // 5% від висоти екрана
-
-        const horizontalOffset =
-          Math.random() * maxHorizontalOffset * 2 - maxHorizontalOffset;
-        const verticalOffset =
-          Math.random() * maxVerticalOffset * 2 - maxVerticalOffset;
-
-        lyricsContainer.style.transform = `translate(${horizontalOffset}px, ${verticalOffset}px)`;
 
         words.forEach((word, wordIndex) => {
           const wordSpan = document.createElement("span");
@@ -1204,25 +901,19 @@
             const charSpan = document.createElement("span");
             charSpan.className = "char";
             charSpan.textContent = char;
-            charSpan.style.setProperty("--char-index", charIndex);
-            charIndex++;
-
             wordSpan.appendChild(charSpan);
           });
 
           lyricsContainer.appendChild(wordSpan);
         });
 
-        // Застосовуємо анімацію до всього контейнера
-        lyricsContainer.className = "lyrics-container " + randomAnimation;
-
-        // Видаляємо клас анімації після завершення
-        setTimeout(() => {
-          lyricsContainer.className = "lyrics-container";
-        }, 1500);
+        if (!isLowPerformanceMode) {
+          setTimeout(() => {
+            lyricsContainer.className = "lyrics-container";
+          }, 1500);
+        }
       }
 
-      // Синхронізований таймінг з піснею
       const lyrics = [
         { time: 0.0, text: "The Black Eyed Peas - Rock That Body" },
         { time: 15.0, text: "I wanna rock right now" },
@@ -1357,10 +1048,8 @@
         { time: 264.0, text: "I wanna — I wanna rock... right... now" },
       ];
 
-      // Запуск ініціалізації при завантаженні сторінки
       window.addEventListener("load", init);
 
-      // Початкове відображення тексту
       showLyric(lyrics[0].text);
     </script>
   </body>
